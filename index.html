@@ -1,67 +1,57 @@
 <!DOCTYPE html>
+<head>
   <meta charset="utf-8" />
   <title>WebSocket Test</title>
-  <script language="javascript" type="text/javascript">
-
-  var wsUri = "ws://localhost:3344";
-  var output;
-
-  function init()
-  {
-    output = document.getElementById("output");
-    testWebSocket();
-  }
-
-  function testWebSocket()
-  {
-    websocket = new WebSocket(wsUri);
-    websocket.onopen = function(evt) { onOpen(evt) };
-    websocket.onclose = function(evt) { onClose(evt) };
-    websocket.onmessage = function(evt) { onMessage(evt) };
-    websocket.onerror = function(evt) { onError(evt) };
-  }
-
-  function onOpen(evt)
-  {
-    writeToScreen("CONNECTED");
-    doSend("Hola caracola");
-  }
-
-  function onClose(evt)
-  {
-    writeToScreen("DISCONNECTED");
-  }
-
-  function onMessage(evt)
-  {
-    writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>');
-    websocket.close();
-  }
-
-  function onError(evt)
-  {
-    writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
-  }
-
-  function doSend(message)
-  {
-    writeToScreen("SENT: " + message);
-    websocket.send(message);
-  }
-
-  function writeToScreen(message)
-  {
-    var pre = document.createElement("p");
-    pre.style.wordWrap = "break-word";
-    pre.innerHTML = message;
-    output.appendChild(pre);
-  }
-
-  window.addEventListener("load", init, false);
-
+  <script src="Scripts.js" language="javascript" type="text/javascript">
   </script>
-
+</head>
+<body>
   <h2>WebSocket Test</h2>
+  
+    <form id="formulario">
+    
+        <h1>Pedido de Reparación</h1>
+
+        <!-- datos del pedido -->
+        
+        <label>Local del Pedido: </label><input list="Sucursales" name="tipoEstablecimiento"><br/>
+        <label>Nombre Cliente: </label><input type="text" name="Name"><br/>
+        <label>Tlfn: </label><input type="tel" name="telefono"><br/>
+        <label>Dispositivo: </label><input list="Dispositivos" name="Dispositivo_a_reparar"><br/>
+        <label>Anotaciones: </label><input type="text" name="Anotations"><br/>
+        <br/>
+        
+        <input type="submit" name="submit" value="Enviar" id="SubmitForm">
+
+        <!--Lista de sucursales de la empresa-->
+
+        <datalist id="Sucursales">
+            <option value="Palma Mobile">
+            <option value="RepairMobile Manacor">
+        </datalist>
+
+        <!-- lista de dispositivos disponibles para reparar -->
+        
+        <datalist id="Dispositivos">
+            <option value="Iphone XS">
+            <option value="Iphone X">
+            <option value="Iphone 8s">
+            <option value="Iphone 8">
+            <option value="Iphone 7s">
+            <option value="Iphone 7">
+            <option value="Iphone 6s">
+            <option value="Iphone 6">
+            <option value="Iphone 5s">
+            <option value="Iphone 5c">
+            <option value="Iphone 5">
+            <option value="Iphone 4s">
+            <option value="Samsung S9">
+            <option value="Samsung S9 Edge">
+            <option value="Google Pixel 3">
+        </datalist>
+
+    </form>
 
   <div id="output"></div>
           
+</body>
