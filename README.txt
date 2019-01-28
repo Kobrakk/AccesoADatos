@@ -1,1 +1,1 @@
-Hay que hacer una base de datos y poder acceder y añadir datos desde el .html mediante javascript.
+Hay que hacer un programa que te coja un xml lo valide y se pueda conectar con la base de datos
