@@ -20,7 +20,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 QT = websockets
 CONFIG += c++11
 CONFIG += console
+QT += sql
 
 # Input
-HEADERS += testserver.h
-SOURCES += main.cpp testserver.cpp
+HEADERS += testserver.h \
+    xmlwriter.h
+SOURCES += main.cpp testserver.cpp \
+    xmlwriter.cpp
